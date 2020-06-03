@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Magic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+	<!-- BOOTSTRAP CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- <script src="js/script.js"></script> -->
+</head>
+<body class="container">
+
+<div class="row">
+    <div class="">
+        <div class="">
+            <form action="" id="pizzaform" id="myDIV" name="myDIV" onsubmit="return false;">
+               <fieldset>
+                <div class="">
+                    <div class="col-8 form-group">
+                        <h3>Enter Delivery Information</h3>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="fname"><i class="fa fa-user"></i> First Name</label>
+                                <input type="text" id="fname" name="firstname" placeholder="Billy" onblur="validate()">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname"> Last Name</label>
+                               
+                                <input type="text" class="form-control" id="lname" name="lastname" placeholder="Palace"  onblur="validate()">
+                            </div>
+                        </div>
+                        
+                        <label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+                        
+                        <input type="text" class="form-control" id="email" name="email" placeholder="pizzamagic@gmail.com"  onblur="validate()">
+                        
+                        <label for="phone"><i class="fa fa-phone"></i> Phone</label>
+                      
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="619-444-4444"  onblur="validate()">
+                        
+                        <div class="form-group">
+                        <label for="address">Address Type</label>
+                        
+                        <select class="adrtype form-control" id="addressDrop" onchange="validate()">
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="business">Business</option>
+                            <option value="campus">Campus</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="dorm">Dorm</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" class="form-control" id="otherChoice" name="other" placeholder="Other">
+                        
+                        <label for="address"><i class="fa fa-address-card-o"></i> Address</label>
+                       
+                        <input type="text" class="form-control" id="address" name="address" placeholder="2525 Washington Street">
+                        
+                        <label for="city"><i class="fa fa-institution"></i> City</label>
+                       
+                        <input type="text" class="form-control" id="city" name="city" placeholder="San Diego">
+                        
+                        <div class="">
+                            <div class="">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="CA">
+                            </div>
+                            
+                            <div class="col-50">
+                                <label for="zip">ZIP</label>
+                               
+                                <input type="text" class="form-control" id="zip" name="zip" placeholder="92000">
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                    <div class="col-8">
+                        <div class="">
+                            <h3>Pick your crust</h3>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" onclick="myFunction()" class="htdropbtn" name="" id="hand" value="hand"> Hand Tossed<br>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" onclick="myFunction()" class="tcdropbtn" name="" id="thin"> Thin Crust<br>
+                                </div>
+                            
+                            <div class="form-check form-check-inline">
+                                <input type="radio" onclick="myFunction()" class="nydropbtn" name="" id="york"> New York Style<br>
+                                </div>
+                            
+                            <div class="form-check form-check-inline">
+                                <input type="radio" onclick="myFunction()" class="gfdropbtn" name="" id="gluten"> Gluten Free<br>
+                                </div>
+                        </div>
+                                </div>
+                                </div>
+                            </div>
+                             <div class>
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="" id="pizzaChoice">Choose Pizza&emsp;&emsp;&emsp;</label>
+							  </div>
+							  <select class="custom-select" id="select" onchange="return calculateTotal()"><option>Choose Pizza</option></select>
+						  </div>
+						  <h6>Add Extras</h6>
+						  
+						  <div class="input-group mb-3">
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="cheese" id="cheeseChoice">Add Extra Cheese &dollar;</label>
+							  </div>
+							  <select class="custom-select" id="cheese" name="cheese" onchange="return calculateTotal()">
+								  <option default>Light: no charge</option>
+								  <option defaul>Normal (default): no charge</option>
+								  <option value="2.99" id="extra">Extra: +$2.99</option>
+								  <option value="3.99" id="double">Double: +$3.99</option>
+							  </select>
+						  </div>
+						
+						  <div class="input-group mb-3">
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="sauce" id="sauceChoice">Extra Sauce&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
+							  </div>
+							  <select class="custom-select" id="sauce" name="sauce" onchange="return calculateTotal()">
+								  <option>Regular Tomato: no charge</option>
+								  <option value="0.99" id="tomato">Hearty Tomato: +$.99</option>
+								  <option value="1.99" id="bbq">  BBQ Sauce: +$1.99</option>
+							  </select>
+						  </div>
+                  
+						  
+						  <div id="toppingSection">
+							  <h6>Toppings $.99 extra</h6>
+							  <p>Meats</p>
+							  <label class="form-check-inline"><input type="checkbox" value="pep" id="pep" onclick="calculateTotal()">Pepperoni</label>
+							  <label class="form-check-inline"><input type="checkbox" value="sa" id="sa" onclick="calculateTotal()">Sasauge</label>
+							  <label class="form-check-inline"><input type="checkbox" value="ham" id="ham" onclick="calculateTotal()">Ham</label>
+							  <label class="form-check-inline"><input type="checkbox" value="bacon" id="bacon" onclick="calculateTotal()">Bacon</label>
+							  <label class="form-check-inline"><input type="checkbox" value="salami" id="salami" onclick="calculateTotal()">Salami</label>
+							  <p>Vegetables</p>
+							  <label class="form-check-inline"><input type="checkbox" value="peppers" id="peppers" onclick="calculateTotal()">Peppers</label>
+							  <label class="form-check-inline"><input type="checkbox" value="olives" id="olives" onclick="calculateTotal()">Olives</label>
+							  <label class="form-check-inline"><input type="checkbox" value="jala" id="jala" onclick="calculateTotal()">Jalapeño</label>
+							  <label class="form-check-inline"><input type="checkbox" value="mush" id="mush" onclick="calculateTotal()">Mushrooms</label>
+							  <label class="form-check-inline"><input type="checkbox" value="pine" id="pine" onclick="calculateTotal()">Pineapple</label>
+							  <label class="form-check-inline"><input type="checkbox" value="onions" id="onions" onclick="calculateTotal()">Onions</label>
+						  </div>
+						  
+						  <div class="radio">
+							  <label><input type="radio"  id="cash">Cash</label>
+							  <label><input type="radio"  id="card">Credit or Debit Card</label>
+						  </div>
+					  </fieldset>
+                          </form>
+                           <div class="col-8">
+						  <fieldset id="payment">
+							  <div style="padding-top: 10px;">
+								  <h2>Customer Checkout</h2>
+							  </div>
+							  
+							  <div class="form-group">
+								  <label for="usr">Name:</label>
+								  <input type="text" class="form-control" name="usr2" id="usr2">
+							  </div>
+							  
+							  <div class="form-group">
+								  <label for="usr">Last Name:</label>
+								  <input type="text" class="form-control" id="lastName2">
+							  </div>
+							  
+                              <div class="form-group">
+                                  <label for="address2">Address</label>
+                                  <input type="text" class="form-control" id="address2">
+                              </div>
+
+                              <div class="form-row">
+                                  <div>
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="city" id="city2">
+                                  </div>
+
+                                  <div class="col">
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="state" id="state2">
+                                  </div>
+
+                                  <div class="col">
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="Zip code" id="zip2">
+                                  </div>
+                              </div>
+
+							  <div class="radio">
+								  <label class="checkbox-inline"><input type="checkbox" value="" id="autoFill" name="autoFill">Same as Delivery</label>
+							  </div>
+
+							  <div class="">
+								  <div class="col">
+									  <label for="cc-name">Name on card</label>
+									  <input type="text" class="form-control" id="cc-name" placeholder="">
+									  <small class="text-muted">Full name as displayed on card</small>
+								  </div>
+								  <div class="col">
+									  <label for="cc-number">Credit card number</label>
+									  <input type="text" class="form-control" id="cc-number" placeholder="Credit Card">
+								  </div>
+							  </div>
+							  <div class="">
+								  <div class="">
+									  <label for="cc-expiration">Expiration</label>
+									  <input type="text" class="form-control" id="cc-expiration" placeholder="Expiration">
+								  </div>
+								  <div class="col-50">
+									  <label for="cc-expiration">CVV</label>
+									  <input type="text" class="form-control" id="cc-cvv" placeholder="cvv">
+									  <div class="invalid-feedback">
+									  </div>
+								  </div>
+							  </div>
+							  <hr class="mb-4">
+						  </fieldset>
+						  <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block" id="btn">SUBMIT</button>
+					  </div>
+					    
+				  
+			  </div>
+        </div>
+        <div class="" id="totalBox">
+				  <div class="" id="side">
+					  <div>
+						  <h4 class="">Your Cart</h4>
+					  </div>
+					  <div>
+						  <h6 class="">Your Info</h6><br>
+						  <div id="top"></div>
+					  </div>
+					  <hr>
+					  <!--TOTAL PRICE-->
+					  <div>
+						  <h6 class="text-left">Your total</h6>
+						  <div id="totalPrice"></div>
+					  </div>
+					  <hr>
+				  </div>
+			  </div>
+		  </div>
+    </div>
+		<footer class="footer" style="text-align: center;">
+			<p>&copy; Pizza Magic </p>
+		</footer>
+   
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+    
+     <script src="js/script.js"></script>
+
+
+
+    
+</body>
+</html>
